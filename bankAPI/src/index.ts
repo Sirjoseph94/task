@@ -23,7 +23,9 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+app.get("/", (_req, res)=>{
+  res.send('<h1>This is BANKAPI</h1><p>Congratulations, API is live</p>')
+})
 
 Routes(app);
 
