@@ -2,6 +2,7 @@ import express from "express";
 import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
+import rateLimiter from "./utils/rateLimiter"
 import Routes from "./routes";
 import config from "./config/config";
 import {db} from "./config/database.config";
@@ -17,6 +18,7 @@ const app = express();
 // app.use(statusMonitor());
 app.use(cors());
 app.use(helmet());
+app.use(rateLimiter)
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
