@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=superpass
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data/db
+  
+  redis:
+    image: "redis:7.2-rc1-alpine"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+volumes:
+  redis_data:
