@@ -1,0 +1,174 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "bankAPI",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5678"
+    }
+  ],
+  "paths": {
+    "/api/v1/user/all": {
+      "get": {
+        "summary": "all users",
+        "description": "Only admin can view all users in the database",
+        "operationId": "allUsers",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/user/register": {
+      "post": {
+        "summary": "register user",
+        "description": "Register a new user",
+        "operationId": "registerUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "BVN": {
+                    "type": "string",
+                    "example": "12344608221"
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "example": "password"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "admin@mail.com"
+                  },
+                  "name": {
+                    "type": "object",
+                    "properties": {
+                      "firstName": {
+                        "type": "string",
+                        "example": "David"
+                      },
+                      "lastName": {
+                        "type": "string",
+                        "example": "Admin"
+                      },
+                      "otherName": {
+                        "type": "string",
+                        "example": "Smith"
+                      }
+                    }
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "2451086715"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "ADMIN"
+                  }
+                }
+              },
+              "example": {
+                "BVN": 12344608221,
+                "confirmPassword": "password",
+                "email": "admin@mail.com",
+                "name": {
+                  "firstName": "David",
+                  "lastName": "Admin",
+                  "otherName": "Smith"
+                },
+                "password": "password",
+                "phone": "2451086715",
+                "role": "ADMIN"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/user/signin": {
+      "post": {
+        "summary": "sign in user",
+        "description": "login to generate access and refresh tokens",
+        "operationId": "signInUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "admin@mail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password"
+                  }
+                }
+              },
+              "example": {
+                "email": "admin@mail.com",
+                "password": "password"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/account/transfer": {
+      "post": {
+        "summary": "transfer funds",
+        "description": "Transfer funds from your account. Reciever's `phone` serves as `accountNumber`",
+        "operationId": "transferFunds",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accountNumber": {
+                    "type": "string",
+                    "example": "2451086715"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "example": 5000
+                  }
+                }
+              },
+              "example": {
+                "accountNumber": "2451086715",
+                "amount": 5000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,4 +12,4 @@ RUN yarn build
 
 EXPOSE 5678
 
-CMD [ yarn, start ]
+CMD [ "yarn", "start" ]

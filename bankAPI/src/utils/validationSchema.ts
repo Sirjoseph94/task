@@ -43,7 +43,7 @@ export const userSchema = z.object({
         })
         .email("Not a valid email"),
       phone: z.string().regex(phoneRegex, "Invalid phone number"),
-      BVN: z.number().nonnegative(),
+      BVN: z.string().regex(/(\d{11})/, {message: "BVN must be a string of 11 digits"}),
       password: z
         .string({
           required_error: "Enter valid password",
