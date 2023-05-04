@@ -10,7 +10,6 @@ bankAPI folder contains a backend node based API service for task 2.
 
 1. rename the `example.env` to `.env`
 2. run `docker-compose up`
-3. run `yarn start`
 
 ## API Documentation
 
