@@ -10,6 +10,11 @@
       "url": "http://localhost:5678"
     }
   ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "paths": {
     "/api/v1/user/all": {
       "get": {
@@ -20,7 +25,12 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/v1/user/register": {
@@ -97,7 +107,12 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          {
+            "onauthAuth": []
+          }
+        ]
       }
     },
     "/api/v1/user/signin": {
@@ -132,7 +147,12 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
       }
     },
     "/api/v1/account/transfer": {
@@ -167,7 +187,12 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   }
